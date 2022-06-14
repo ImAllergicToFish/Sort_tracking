@@ -1,8 +1,6 @@
 /__pycache__
-/boat2.mp4
-/boat_video.mp4
-/people_video.mp4
 /yolov3-tiny.cfg
 /yolov3-tiny.weights
 /yolov3.cfg
 /yolov3.weights
+/videos

@@ -32,7 +32,7 @@ def convert_bbox_to_z(bbox):
   h = bbox[3] - bbox[1]
   x = bbox[0] + w/2.
   y = bbox[1] + h/2.
-  s = w * h    #scale is just area
+  s = w * h    
   r = w / float(h)
   return np.array([x, y, s, r]).reshape((4, 1))
 

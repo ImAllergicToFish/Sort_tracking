@@ -5,10 +5,10 @@ import cv2
 #============================================================
 #____________________НАЧАЛЬНЫЕ ПАРАМЕТРЫ_____________________
 # Объект для детектирования (см. coco.names)
-TRACK_OBJECT = 'person'
+TRACK_OBJECT = 'boat'
 # 0 - захват камеры
 # str - путь к видео
-VIDEO_SOURCE = '/home/neleps/NEURAL_LABS/Sort_tracking/people_video.mp4'
+VIDEO_SOURCE = '/home/neleps/NEURAL_LABS/Sort_tracking/videos/boat2.mp4'
 # Конфиг и веса выбранной сети
 # Для выбора сети: https://pjreddie.com/darknet/yolo/
 CONFIG_FILE = 'yolov3.cfg'
@@ -107,6 +107,8 @@ def detect_cv2_camera(cfgfile, weightfile):
                     for d in trackers:
                         result_img = cv2.rectangle(result_img, ((int)(d[0]), (int)(d[1])), ((int)(d[2]), (int)(d[3])), color_list[(int)(d[4])], 2)
                         result_img = cv2.putText(result_img, str(d[len(d)-1]), ((int)(d[0]), (int)(d[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+
+            result_img = cv2.resize(result_img, [1080, 720])          
             cv2.imshow('video', result_img)
             cv2.waitKey(1)
     cap.release()
